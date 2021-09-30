@@ -1,8 +1,12 @@
 version: "3"
 services:
   node-express:
-    build: .
+    build:
+      context: .
+      args:
+        NODE_ENV: production
     ports:
       - "3000:3000"
+    command: npm run start
     env_file:
       - ./.env
