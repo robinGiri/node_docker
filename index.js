@@ -17,7 +17,6 @@ const reconnectWithMongoDB = () => {
   .then(() => console.log('DB connected ...'))
   .catch((e) => {
     console.log(e)
-    setTimeout(reconnectWithMongoDB, 5000)
   })
 }
 
