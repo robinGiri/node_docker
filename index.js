@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose');
 const { MONGO_USER, MONGO_PASSWORD, MONGO_IP, MONGO_PORT } = require('./config/config');
+const postRouter = require('./routes/postRoute')
 
 const app = express()
 
@@ -23,3 +24,4 @@ const reconnectWithMongoDB = () => {
 reconnectWithMongoDB()
 
 app.listen(port, () => console.log(`we are at port ${port}`))
+app.use('/api/v1/posts', postRouter)
